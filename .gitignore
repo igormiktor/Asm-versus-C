@@ -26,6 +26,11 @@
 *.a
 *.lib
 
+# Build products
+*.lst
+*.hex
+build
+
 # Executables
 *.exe
 *.out
