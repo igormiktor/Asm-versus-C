@@ -42,6 +42,20 @@ ISR( TIMER1_COMPA_vect )
 
     PINB |= (1 << PINB1);                       // Toggle the green LED
     PINB |= (1 << PINB2);                       // Toggle the red LED
+
+    /*
+        Note that the construct
+
+        PINB |= (1 << PINB1) | (1 << PINB2);
+
+        is a not as good in size or speed, generating the following code:
+
+        in  r24,  PINB
+        ori r24,  lo8(6)
+        out PINB, r24
+
+        plus the push and pop of register r24
+    */
 }
 
 
